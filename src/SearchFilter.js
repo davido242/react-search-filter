@@ -42,6 +42,7 @@ export default function SearchFilter() {
       <div className="w-full">
         <input
           placeholder="Search"
+          type="search"
           value={filterVal}
           onInput={(e) => handleFilter(e)}
           className="border outline-2 outline-orange-400 p-2"
