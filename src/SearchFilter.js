@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 export default function SearchFilter() {
   const [data, setData] = useState([]);
+  const [searchApiData, setSearchApiData] = useState([])
   const [filterVal, setFilterVal] = useState('')
   
   useEffect(() => {
@@ -10,13 +11,21 @@ export default function SearchFilter() {
         .then((response) => response.json())
         .then((json) => {
           setData(json)
+          setSearchApiData(json)
         });
     }
     fetchData();
-  }, []);
+  }, [])
 
   const handleFilter = (e) => {
+    if(e.target.value === ''){
+      setData(searchApiData)
+    }else {
+      const filterResult = searchApiData.filter(item => item.name.toLowerCase().includes(e.target.value.toLowerCase()))
+      setData(filterResult)
+    }
 
+    setFilterVal(e.target.value)
   }
 
   return (
