@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 export default function SearchFilter() {
   const [data, setData] = useState([]);
+  const [filterVal, setFilterVal] = useState('')
   
   useEffect(() => {
     const fetchData = () => {
@@ -13,8 +14,16 @@ export default function SearchFilter() {
     }
     fetchData();
   }, []);
+
+  const handleFilter = (e) => {
+
+  }
+
   return (
     <div className="p-2 px-8">
+      <div className="w-full">
+        <input placeholder="Search" value={filterVal} onInput={(e)=> handleFilter(e)} className="border outline-2 outline-orange-400 p-2" />
+      </div>
       <table className="w-full p-2">
         <tbody>
           <tr className="text-left border-b-4 border-cyan-400 mb-2">         
