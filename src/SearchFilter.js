@@ -14,21 +14,21 @@ export default function SearchFilter() {
     fetchData();
   }, []);
   return (
-    <div>
-      <table>
+    <div className="p-2 px-8">
+      <table className="w-full p-2">
         <tbody>
-          <tr>            
-          <th>Name</th>
-          <th>UserName</th>
-          <th>Email</th>
-          <th>Phone</th>
+          <tr className="text-left border-b-4 border-cyan-400 mb-2">         
+            <th>Name</th>
+            <th>UserName</th>
+            <th>Email</th>
+            <th>Phone</th>
           </tr>
           {
             data.map(item => {
               return (
-                <tr>
+                <tr className="border-b border-cyan-400 mt-8">
                   <td>{item.name}</td>
-                  <td>{item.id}</td>
+                  <td>{item.username}</td>
                   <td>{item.email}</td>
                   <td>{item.phone}</td>
                 </tr>
